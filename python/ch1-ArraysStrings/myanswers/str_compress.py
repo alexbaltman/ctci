@@ -9,6 +9,32 @@ Example:
 
 Hints: 92, 110
 '''
+import itertools
+
+
+def str_compress(s):
+    mystr = ''
+    for k, g in itertools.groupby(s):
+        mystr += k+str(len(list(g)))
+    return mystr if len(mystr) < len(s) else s
+
+
+import re
+
+
+def str_compress2(input):
+
+    mystr = ''
+    s = input
+    while s:
+        mylen = len(re.match(r'%s+' % s[0], s).group()) # group returns 'aa' for 'aabbccc'
+        mystr += s[0] + str(mylen)
+        s = s[mylen:]
+
+    if len(input) <= len(mystr):
+        return input
+    return mystr
+
 
 
 if __name__ == '__main__':
