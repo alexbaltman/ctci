@@ -10,5 +10,5 @@ Hints: 23, 97, 130
 */
 package oneaway
 
-func oneaway(s1 string, s2 string) bool {
+func OneAway(s1 string, s2 string) bool {
 }

@@ -12,7 +12,7 @@ package oneaway
 
 import "testing"
 
-func Testoneaway(t *testing.T) {
+func TestOneAway(t *testing.T) {
 	var tests = []struct {
 		string1 string
 		string2 string
@@ -42,8 +42,8 @@ func Testoneaway(t *testing.T) {
 		{"hide", "yourit", false},
 	}
 	for _, test := range tests {
-		if got := oneaway(test.string1, test.string2); got != test.want {
-			t.Errorf("oneaway(%q, %q) = %v", test.string1, test.string2, got)
+		if got := OneAway(test.string1, test.string2); got != test.want {
+			t.Errorf("OneAway(%q, %q) = %v", test.string1, test.string2, got)
 		}
 	}
 }
