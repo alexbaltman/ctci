@@ -11,8 +11,19 @@ Example:
     Output: True (permutations: "taco cat", "atco cta", etc.)"
 Hints: 106, 121, 134, 136
 '''
+import string
+from collections import Counter
+
 def palin_permu(s):
-    pass
+    if not s: return False
+    s = [c.lower() for c in s if c != ' ' if c not in string.punctuation]
+
+    cntr = Counter(s)
+    cnt = {k:v%2 for k, v in cntr.iteritems() if v%2 == 1}
+    if len(cnt) > 1:
+        return False
+    return True
+
 
 if __name__ == '__main__':
     assert palin_permu('A car, a man, a maraca') == True, 'A car, a man, a maraca'

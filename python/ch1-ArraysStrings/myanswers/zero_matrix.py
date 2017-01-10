@@ -11,8 +11,24 @@ Example
 
 Hints: 17, 74, 102
 '''
+import copy
+
 def zero_matrix(m):
-    pass
+    m2 = copy.deepcopy(m)
+
+    def changetozeros(y, x):
+        m2.__setitem__(y, len(m2[y])*[0])
+        [m2[i].__setitem__(x, 0) for i in range(len(m2))]
+
+    locs = []
+    for e, r in enumerate(m):
+        for e2, c in enumerate(r):
+            if c == 0 and (e not in locs or e2 not in locs):
+                changetozeros(e, e2)
+                locs.append(e)
+                locs.append(e2)
+    return m2
+
 
 
 if __name__ == '__main__':
