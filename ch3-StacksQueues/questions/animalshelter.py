@@ -4,7 +4,6 @@ An animal shelter, which holds only dogs and cats, operates on a strictly "first
 Hints: 22, 56, 63
 '''
 
-
 def animalshelter(s):
     pass
 
